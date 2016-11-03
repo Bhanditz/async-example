@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: 'kotlin'
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "http://dl.bintray.com/kotlin/kotlinx.coroutines"
+        }
+        maven {
+            url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1'
+        }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
+repositories {
+    mavenCentral()
+    maven {
+        url "http://dl.bintray.com/kotlin/kotlinx.coroutines"
+    }
+    maven {
+        url 'http://dl.bintray.com/kotlin/kotlin-eap-1.1'
+    }
+}
